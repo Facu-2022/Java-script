@@ -23,16 +23,15 @@ const auto3=new Auto  (3,"fiat",2019,1000000,"cronos.jpg")
 const garage= []
 garage.push(auto1,auto2,auto3)
 
-function agregarAuto(Array){
-    let numeroAuto = prompt("ingrese el numero del auto ingresado")
+function agregarAuto(array){
     let marcaAuto= prompt("ingrese la marca del auto ingresado")
     let modeloAuto= prompt("ingrese el modelo del auto ingresado")
     let precioAuto=parseInt (prompt("ingrese el precio del auto ingresado"))
 
-const nuevoAuto = new Auto(Array.length+1,numeroAuto,marcaAuto,modeloAuto,precioAuto)
+   const nuevoAuto = new Auto(Array.length+1,marcaAuto,modeloAuto,precioAuto)
 
-Array.push(nuevoAuto)
-mostrarlistaAuto(garage)
+  array.push(nuevoAuto)
+  mostrarlistaAuto(garage)
 }
 function mostrarlistaAuto(array){
     console.log("Los autos  disponibles son:")
@@ -42,7 +41,7 @@ function mostrarlistaAuto(array){
 }
 
 
-auto1.mostrarInfoAuto()
+//auto1.mostrarInfoAuto()//
 
 function opciones(salir){
     let menu = parseInt(prompt(`por favor seleccione una opcion
@@ -67,29 +66,71 @@ function opciones(salir){
         }
 }
 
-opciones()
+//opciones()
+let divAuto= document.getElementById("auto")
+let verGaragebtn=document.getElementById("verGarage")
+let botonInputbtn=document.getElementById("guardar")
 
-let divAuto= document.getElementById("autos")
+//recorro garage
+function VerGarage(array){
 
 
-//recorro todos las card sin necesidad de andar copiandlo cada una
+    for(let auto of array){
+ 
+ 
+     let nuevoAutodiv= document.createElement("div")
+     nuevoAutodiv.className = "col-12 col-md-6 col-lg-4 my-3"
+     nuevoAutodiv.innerHTML=
+     `
+     <div id=${auto.id}  class="card" style="width: 18rem;">
+        <img src="./imagenes/${auto.imagen}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">Marca: ${auto.marca}</p>
+            <p class="card-text">Modelo: ${auto.modelo}</p>
+            <p class="card-text">Precio: ${auto.precio}</p>
+            <button id="botonAuto">Comprar</button>
+         </div>
+        
+     </div>
+     `
+     divAuto.append(nuevoAutodiv)
+ 
+     }
+ }
 
-for(let autos of garage){
+
+//aplico eventos
 
 
-    let nuevoAutodiv= document.createElement("div")
 
-    nuevoAutodiv.innerHTML=
-    `
-    <div id=${autos.id}  class="card" style="width: 18rem;">
-       <img src="./imagenes/${autos.imagen}" class="card-img-top" alt="...">
-       <div class="card-body">
-           <p class="card-text">Marca: ${autos.marca}</p>
-           <p class="card-text">Modelo: ${autos.modelo}</p>
-           <p class="card-text">Precio: ${autos.precio}</p>
-        </div>
-    </div>
-    `
-    divAuto.appendChild(nuevoAutodiv)
+verGaragebtn.onclick = function(){
+    VerGarage(garage)
+}
+
+//agregamos auto
+function CargarrAuto(array){
+    let marcaInputbtn=document.getElementById("marcaInput")
+    let modeloInputbtn=document.getElementById("modeloInput")
+    let precioInputbtn=document.getElementById("precioInput")
+    
+
+
+    const nuevoAuto = new Auto(Array.length+1,marcaInputbtn.value,modeloInputbtn.value,precioInputbtn.value,"foto.jpg")
+
+    array.push(nuevoAuto)
+    VerGarage(garage)
 
 }
+
+botonInputbtn.addEventListener("click", ()=>{
+    CargarrAuto(garage)
+})
+
+
+
+
+
+
+
+
+

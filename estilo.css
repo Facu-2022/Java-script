@@ -1,0 +1,30 @@
+#botonAuto{
+    background-color: rgb(214, 252, 44);
+    color: rgb(129, 13, 238);
+    border-radius: 3px;
+    border: solid 3PX black;
+    font-size: 30px;
+    font-weight: 900;
+
+}
+.card{
+    margin: 30px;
+    display: flex;
+    align-items: center;
+}
+.container11{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px;
+}
+#formulario{
+    display: flex;
+    flex-direction: column;
+}
+#guardarAutoBtn{
+
+    color: white;
+    background-color: black;
+    width: 500px;
+}
