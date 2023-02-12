@@ -2,21 +2,23 @@
 
 //constructora
 class Auto{
-    constructor(numero, marca, modelo, precio){
+    constructor(id, marca, modelo, precio,imagen){
         //propiedades o atributos de nuestra clase
-        this.numero = numero,
+        this.id = id,
         this.marca = marca,
         this.modelo = modelo,
-        this.precio = precio
+        this.precio = precio,
+        this.imagen = imagen
+        
     }
     mostrarInfoAuto(){
         console.log(`El auto es un/a ${this.marca}, el modelo del auto es ${this.modelo} y su precio es ${this.precio}`)
     }
 }
 
-const auto1= new Auto (1,"fiat",2000,120000)
-const auto2= new Auto (2,"renauld",1998,80000)
-const auto3=new Auto  (3,"fiat",2019,1000000)
+const auto1= new Auto (1,"fiat",2000,120000,"fitito.jpg")
+const auto2= new Auto (2,"renauld",1998,80000,"12.jpg")
+const auto3=new Auto  (3,"fiat",2019,1000000,"cronos.jpg")
 
 const garage= []
 garage.push(auto1,auto2,auto3)
@@ -35,8 +37,7 @@ mostrarlistaAuto(garage)
 function mostrarlistaAuto(array){
     console.log("Los autos  disponibles son:")
     for(let elemento of array){
-        console.log(elemento.numero, elemento.marca , elemento.modelo, elemento.precio)
-        //opción utilizar for in
+        console.log(elemento.id, elemento.marca , elemento.modelo, elemento.precio)
     }
 }
 
@@ -67,3 +68,28 @@ function opciones(salir){
 }
 
 opciones()
+
+let divAuto= document.getElementById("autos")
+
+
+//recorro todos las card sin necesidad de andar copiandlo cada una
+
+for(let autos of garage){
+
+
+    let nuevoAutodiv= document.createElement("div")
+
+    nuevoAutodiv.innerHTML=
+    `
+    <div id=${autos.id}  class="card" style="width: 18rem;">
+       <img src="./imagenes/${autos.imagen}" class="card-img-top" alt="...">
+       <div class="card-body">
+           <p class="card-text">Marca: ${autos.marca}</p>
+           <p class="card-text">Modelo: ${autos.modelo}</p>
+           <p class="card-text">Precio: ${autos.precio}</p>
+        </div>
+    </div>
+    `
+    divAuto.appendChild(nuevoAutodiv)
+
+}
