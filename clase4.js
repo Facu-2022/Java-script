@@ -14,9 +14,15 @@ const auto1 = new Auto (1,"fiat 600",1998,1000000,"fitito.jpg")
 const auto2 = new Auto (2,"renaultd 12",2000,1900000,"12.jpg")
 const auto3 = new Auto (3,"fiat cronos",2019,10000000,"cronos.jpg")
 
-const garage = []
-garage.push(auto1, auto2, auto3)
-console.log(garage)
+let garage = []
+
+if(localStorage.getItem("garage")){
+    garage=JSON.parse(localStorage.getItem("garage"))
+}else{
+    garage.push(auto1, auto2, auto3)
+    localStorage.setItem("garage",JSON.stringify(garage))
+}
+
 
 
 
@@ -35,11 +41,22 @@ function cargarAuto(array){
 
     const nuevoAuto = new Auto(array.length+1, inputMarca.value, inputModelo.value,parseInt(inputPrecio.value), "308.jpg")
     console.log(nuevoAuto)
- 
+
+    //lo cargo al storage
+    localStorage.setItem("garage",JSON.stringify(array))
+//capturo formulario para q se resetee
+    let formulario=document.getElementById("formulario")
+    formulario.reset()
+
+
+
+
     array.push(nuevoAuto)
-    
+    verCatalogo(array)
+
 
 }
+
 
 //RECORRRLO CADA UNA DE LAS CARS, INCLUSO LAS CARGADAS NUEVAS
 
