@@ -1,0 +1,76 @@
+[
+    {
+        
+        "id": 1,
+        "marca": "Andes",
+        "detalles": "970 ml",
+        "precio": 470,
+        "imagen": "img3.png"
+    },
+    {
+        
+        "id": 2,
+        "marca": "Lata stella",
+        "detalles": "473 ml",
+        "precio": 300,
+        "imagen": "img7.png"
+    },
+    {
+        
+        "id": 3,
+        "marca": "Lata schneider",
+        "detalles": "473 ml Negra",
+        "precio": 470,
+        "imagen": "img9.png"
+    },
+    {
+        
+        "id": 4,
+        "marca": "Lata schneider",
+        "detalles": "473 ml Roja",
+        "precio": 470,
+        "imagen": "img10.png"
+    },
+
+    {
+        
+        "id": 5,
+        "marca": "Lata schneider",
+        "detalles": "473 ml",
+        "precio": 470,
+        "imagen": "img11.png"
+    },
+    {
+        
+        "id": 6,
+        "marca": "Lata AMSTEL",
+        "detalles": "473 ml",
+        "precio": 470,
+        "imagen": "img12.png"
+    },
+    {
+        
+        "id": 7,
+        "marca": "Lata BRAHMA",
+        "detalles": "970 ml",
+        "precio": 470,
+        "imagen": "img13.png"
+    },
+    {
+        
+        "id": 8,
+        "marca": "COMBO FERNET",
+        "detalles": "COLA ret.2L",
+        "precio": 1950,
+        "imagen": "img14.png"
+    },
+    {
+        
+        "id": 9,
+        "marca": "GANCIA",
+        "detalles": "1000 ml",
+        "precio": 1000,
+        "imagen": "img15.png"
+    }
+
+]

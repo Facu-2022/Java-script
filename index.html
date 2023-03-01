@@ -4,34 +4,145 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>java</title>
+    <title>JE bebidas</title>
+    <link rel="icon" href="./imagenes/drinks.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./estilo.css">
+    <link rel="stylesheet" href="estilo.css">
+   
+
 </head>
 <body>
-    <form id="formulario">
-        <label for="marca">Ingrese marca del auto:</label><br>
-        <input type="text" id="marcaInput" name="marca" style="border: 1px solid black"><br>
-        <label for="modelo">Ingrese el modelo del auto:</label><br>
-        <input type="text" id="modeloInput" name="autor" style="border: 1px solid black"><br>
-        <label for="precio">Ingrese el precio del auto:</label><br>
-        <input type="text" id="precioInput" name="precio" style="border: 1px solid black"><br>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                  <form class="d-flex">
+                    <input id="buscador"class="form-control me-2" placeholder="Buscar por marca/bebida" aria-label="Search">
+                    <button id="btnBuscar" class="btn btn-outline" style= color:wheat>Buscar</button>
+                  </form> 
+                   
+                </ul>
+                <ul>
+                  <select id="opciones" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Ordenar por:</option>
+                    <option value="1">Mayor a menor</option>
+                    <option value="2">Menor a mayor</option>
+                    
+                  </select>
+                </ul>
+                <ul style="list-style: none;"className="navbar-nav me-auto">  
+                  <li className="nav-item " >
+                      <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#ModalCarrito" class="btn btn-secondary"><i class="fas fa-shopping-cart fa-1x"></i></a>
+                  </li>
+              </ul>
+               
+              </div>
+              <div>
+                  
+              </div>
+            </div> 
+          </nav>
+    
 
-    </form>
-    <button id="guardar">Guardar Auto</button>
+        <div class="contenedor">
+            <div class="row">
+                <div class="col-sm logo-leyend2">
+                    <img class="img-fluid logo logo-1" src="./imagenes/img1.png" width="500px">
+                </div>
+               
+            </div>
+        
+        </div>
+    </header>
+    
     <div class="container11">
-         <button id="verGarage">Ver garage</button>
+        <button type="button" id="verVinoteca" class="btn btn-outline-secondary">VER VINOTECA</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#miModal"  class="btn btn-outline-secondary">VENDER BEBIDA</button>
+
+    </div>
+    <div class="cajas">
+      <div id="resultadoss"></div>
+        <div id="vino"class="cajitas"></div>
     </div>
 
-    <div class="container">
-        <div id="auto"class="row"></div>
-    </div>
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="color: black;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">VENDER BEBIDA</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+              <form id="formAgregarBebida">
+                <div class="mb-3">
+                  <label for="marca" class="form-label">MARCA:</label>
+                  <input type="text" class="form-control" id="marcaInput" aria-describedby="marca">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="detalles" class="form-label">DETALLE:</label>
+                  <input type="text" class="form-control" id="detalleInput" aria-describedby="detalles">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="precio" class="form-label">PRECIO:</label>
+                  <input type="text" class="form-control" id="precioInput" aria-describedby="precio">
+                  
+                </div>
+              </form>
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+              <button type="text" id="btnvenderBebida" class="btn btn-success" style="background-color: blueviolet;" data-bs-dismiss="modal">VENDER BEBIDA</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
 
-<script src="./clase4.js"></script>        
+      <div class="modal fade" id="ModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalCarro">
+              
+            </div>
+            <div class="row ml-ato" style="color: black">
+              <p id="preciosumaTotal"></p>
+            </div>
+            <div class="modal-footer">
+              
+              
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" data-bs-dismiss="modal" class="btn btn-success" id="finalizarCompra">Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+    <footer>
+        <div>
+            <p>seguinos en nuestras redes</p>
+        </div>
+        <div class="contenedor5">
+            <ul>
+                <li><span class="fa-brands fa-facebook"></span><a href="https://www.facebook.com/profile.php?id=100063644630200&mibextid=LQQJ4d">facebook</a></li>
+                <li><span class="fa-brands fa-instagram"></span><a href="https://www.instagram.com/invites/contact/?i=wv0yw7muw0hs&utm_content=g96nf7z">instagram</a></li>
+                <li><span class="fa-brands fa-whatsapp"></span><a href="https://wa.me/5492604659744">Whatsapp</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/a57020b052.js" crossorigin="anonymous"></script>
+    <script src="constructora.js"></script>
+    <script src="./clase4.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
+    
 </html>
