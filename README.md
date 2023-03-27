@@ -1,4 +1,4 @@
-# java
+# java script
 
 Este proyecto es un modelo de una pagina de ventas de Bebidas ("JE bebidas")
 la cual es una pagina que esta hecha con java script, que tiene un catalogo en el cual se puede se puede ver cada bebida,
