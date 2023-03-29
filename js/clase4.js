@@ -1,19 +1,4 @@
 
-let vinoteca=[]
-const cargarVinoteca = async () =>{
-    const response = await fetch("bebidas.json")
-    const data= await response.json()
-    for(let bebida of data){
-        let bebidaNueva = new Bebida (bebida.id, bebida.marca, bebida.detalles, bebida.precio, bebida.imagen)
-        vinoteca.push(bebidaNueva)
-        console.log(vinoteca)
-    }
-    localStorage.setItem("vinoteca",JSON.stringify(vinoteca))
-}
-
-//APLICO TERNARIO
-localStorage.getItem("vinoteca") ? (vinoteca=JSON.parse(localStorage.getItem("vinoteca"))) : cargarVinoteca()
-
 //CAPTURO ELEMENTOS
 let divBebida= document.getElementById("vino")
 let botonVinoteca= document.getElementById("verVinoteca")
@@ -51,7 +36,7 @@ function verVinoteca(array){
         <div class="card-body">
             <p class="card-text">Marca: ${bebida.marca}</p>
             <p class="card-text">Detalle: ${bebida.detalles}</p>
-            <p class="card-text">Precio: ${bebida.precio}</p>
+            <p class="card-text">Precio: $${bebida.precio}</p>
          </div>
         <div  class= "botonComprarr">
         <button id="botonCompra${bebida.id}" class="btn-1">COMPRAR</button>
