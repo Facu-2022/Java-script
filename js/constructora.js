@@ -7,10 +7,10 @@ class Bebida {
         this.imagen = imagen
     }
 }
-let vinoteca=[]
 
 
 const cargarVinoteca = async () =>{
+    
     const response = await fetch("bebidas.json")
     const data= await response.json()
     for(let bebida of data){
@@ -20,8 +20,6 @@ const cargarVinoteca = async () =>{
     }
     localStorage.setItem("vinoteca",JSON.stringify(vinoteca))
 }
-if (localStorage.getItem("vinoteca")){
-    vinoteca=JSON.parse(localStorage.getItem("vinoteca"))
-}else{
+
     cargarVinoteca()
-}
+    let vinoteca=[]
